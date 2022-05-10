@@ -13,6 +13,10 @@
     width: 800px;
 }
 
+.app h1, h2 {
+    color: rgb(255, 0, 0);
+}
+
 .post{
     display: flex;
     padding: 15px;
@@ -21,4 +25,12 @@
     margin-top: 15px;
     justify-content: space-between;
     align-items: center;
+}
+
+.post__content{
+
+}
+
+.post__btns{
+
 }
