@@ -1,11 +1,13 @@
+import React from "react";
+import PostItem from "./components/PostItem";
+import "./styles/App.css";
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      It is working
+    <div className="app">
+      <PostItem />
     </div>
   );
-}
+};
 
 export default App;
