@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
@@ -20,11 +20,14 @@ const App = () => {
   ]);
 
   const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  // const [body, setBody] = useState("");
+  const bodyInputRef = useRef();
 
   const addNewPost = (e) => {
     e.preventDefault();
-    console.log(`Title name: ${title}, Body name: ${body}`)
+    // console.log(`Title name: ${title}, Body name: ${body}`)
+    console.log(`Title: ${title}`);
+    console.log(bodyInputRef.current.value)
   }
 
   return (
@@ -37,8 +40,9 @@ const App = () => {
           placeholder="title"
         />
         <MyInput
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
+          ref={bodyInputRef}
+          // value={body}
+          // onChange={(e) => setBody(e.target.value)}
           type="text"
           placeholder="body"
         />
