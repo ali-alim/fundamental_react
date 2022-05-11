@@ -38,7 +38,10 @@ const App = () => {
   return (
     <div className="app">
       <PostForm create={createPost} />
-      <PostList remove={removePost} posts={posts} title={"Здоровье: надо успеть все до Июля"} />
+      {posts.length !== 0
+      ? <PostList remove={removePost} posts={posts} title={"Здоровье: надо успеть все до Июля"} />
+      : <h1><center>No Posts Found</center></h1>
+      }
     </div>
   );
 };
