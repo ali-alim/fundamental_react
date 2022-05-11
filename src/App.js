@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+import PostForm from "./components/PostForm";
 import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
@@ -24,39 +25,16 @@ const App = () => {
   // const [body, setBody] = useState("");
   // const bodyInputRef = useRef();
 
-  const [post, setPost] = useState({title:'', body:''})
-
-  const addNewPost = (e) => {
-    e.preventDefault();
-     // console.log(bodyInputRef.current.value)
-    // const newPost = {
-    //   id: Date.now(),
-    //   title,
-    //   body
-    // }
-    setPosts([...posts,{...post, id: Date.now()}])
-    setPost({title:'', body:''})
+  const createPost = (newPost) => {
+    setPosts([...posts, newPost])
   }
+
+  
 
 
   return (
     <div className="app">
-      <form>
-        <MyInput
-          value={post.title}
-          onChange={(e) => setPost({...post, title: e.target.value})}
-          type="text"
-          placeholder="title"
-        />
-        <MyInput
-          // ref={bodyInputRef}
-          value={post.body}
-          onChange={(e) => setPost({...post, body: e.target.value})}
-          type="text"
-          placeholder="body"
-        />
-        <MyButton onClick={addNewPost}>Создать новое дело</MyButton>
-      </form>
+      <PostForm create={createPost} />
       <PostList posts={posts} title={"Здоровье: надо успеть все до Июля"} />
     </div>
   );
