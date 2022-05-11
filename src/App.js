@@ -20,14 +20,20 @@ const App = () => {
   ]);
 
   const [title, setTitle] = useState("");
-  // const [body, setBody] = useState("");
-  const bodyInputRef = useRef();
+  const [body, setBody] = useState("");
+  // const bodyInputRef = useRef();
 
   const addNewPost = (e) => {
     e.preventDefault();
-    // console.log(`Title name: ${title}, Body name: ${body}`)
-    console.log(`Title: ${title}`);
-    console.log(bodyInputRef.current.value)
+    const newPost = {
+      id: Date.now(),
+      title,
+      body
+    }
+
+    setPosts([...posts,newPost])
+
+    // console.log(bodyInputRef.current.value)
   }
 
   return (
@@ -40,9 +46,9 @@ const App = () => {
           placeholder="title"
         />
         <MyInput
-          ref={bodyInputRef}
-          // value={body}
-          // onChange={(e) => setBody(e.target.value)}
+          // ref={bodyInputRef}
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
           type="text"
           placeholder="body"
         />

@@ -12,8 +12,8 @@ const PostList = ({posts, title}) => {
         <h1>{title}</h1>
         <h2 style={{textDecoration:'underline'}}>Осталось всего {numOfLeftDays} дней</h2>
       </center>
-      {posts.map((post) => (
-        <PostItem post={post} key={post.id} />
+      {posts.map((post,index) => (
+        <PostItem number={index+1} post={post} key={post.id} />
       ))}
     </div>
   )
