@@ -19,12 +19,30 @@ const App = () => {
     },
   ]);
 
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const addNewPost = (e) => {
+    e.preventDefault();
+    console.log(`Title name: ${title}, Body name: ${body}`)
+  }
+
   return (
     <div className="app">
       <form>
-        <MyInput type="text" placeholder="title" />
-        <MyInput type="text" placeholder="body" />
-        <MyButton disabled>Создать новое дело</MyButton>
+        <MyInput
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          type="text"
+          placeholder="title"
+        />
+        <MyInput
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+          type="text"
+          placeholder="body"
+        />
+        <MyButton onClick={addNewPost}>Создать новое дело</MyButton>
       </form>
       <PostList posts={posts} title={"Здоровье: надо успеть все до Июля"} />
     </div>
