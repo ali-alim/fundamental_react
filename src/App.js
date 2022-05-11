@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PostItem from "./components/PostItem";
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
+import MyInput from "./components/UI/input/MyInput";
 import "./styles/App.css";
 
 const App = () => {
@@ -21,8 +22,8 @@ const App = () => {
   return (
     <div className="app">
       <form>
-        <input type="text" placeholder="title" />
-        <input type="text" placeholder="body" />
+        <MyInput type="text" placeholder="title" />
+        <MyInput type="text" placeholder="body" />
         <MyButton disabled>Создать новое дело</MyButton>
       </form>
       <PostList posts={posts} title={"Здоровье: надо успеть все до Июля"} />
